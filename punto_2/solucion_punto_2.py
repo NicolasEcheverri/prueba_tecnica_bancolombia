@@ -1,8 +1,6 @@
 
 
 
-
-
 #Archivo Python para extraer del archivo json creado por AWS Textract la información
 #del número de matrícula, fecha, departamento, municipio,veredad
 
@@ -61,6 +59,8 @@ def extraccion_informacion_documento(path_archivo):
     recibe la ruta del archivo analizado
     devuelve un diccionario con la información previamente descrita
     '''
+
+    #cargando el archivo
     f    = open(path_archivo)
     data = json.load(f)   
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--path", required=True)
     args = parser.parse_args()
-    path_archivo = args.path #por defecto es string
+    path_archivo = args.path 
 
     diccionario_datos = extraccion_informacion_documento(path_archivo)
     print(diccionario_datos)
